@@ -2,20 +2,23 @@ import SuperHero from "../models/SuperHero.mjs";
 import IRepository from "./IRepository.mjs";
 
 class SuperHeroRepository extends IRepository {
+    async obtenerMayoresDe30 () {
+    //Se implementa un filtro por edad usando el operador de
+    // comparación $gt de MongoDB para traer documentos cuya edad sea mayor a 30.
+    return await SuperHero.find({ edad: { $gt: 30 } });
+    }
+    
+    async buscarPorAtributo (atributo, valor) {
+    // Los corchetes indican que el nombre del campo “atributo” lo tengo en una variable
+    return await SuperHero.find({ [atributo]: valor });
+    }
+    
     async obtenerPorId (id) {
         return await SuperHero.findById(id);
     }
 
     async obtenerTodos () {
         return await SuperHero.find({});
-    }
-
-    async buscarPorAtributo (atributo, valor) {
-        RESOLVER
-    }
-
-    async obtenerMayoresDe30 () {
-        RESOLVER
     }
 }
 

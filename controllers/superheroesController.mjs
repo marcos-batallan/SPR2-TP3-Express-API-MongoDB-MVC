@@ -40,7 +40,7 @@ export async function buscarSuperheroePorAtributoController (req, res) {
         const superheroesFormateados = renderizarListaSuperheroes(superheroes);
         res.status(200).json(superheroesFormateados);
     } catch (error) {
-        res.status(500).send({ mensaje: 'Error al buscar los Superhéroes', error: error.massage });
+        res.status(500).send({ mensaje: 'Error al buscar los Superhéroes', error: error.message });
     }
 }
 
